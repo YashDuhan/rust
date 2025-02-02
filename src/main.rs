@@ -175,6 +175,25 @@ impl Animal for Bird{
     }
 }
 
+// Enum
+#[derive(Debug)]
+enum MyEnum{
+    A,
+    B(i32),
+    C{x:i32, y:i32}
+}
+
+// vectors
+fn vectors(){
+    let mut vec: Vec<i64> = vec![1,2,3,4,5];
+    vec.len();
+    vec[0];
+    vec.push(6);
+    vec.remove(0);
+    println!("{:?}", vec);
+
+}
+
 fn main() {
     println!("Hello, world!");
     let a = 10; 
@@ -203,4 +222,22 @@ fn main() {
     bird.print_name();
     bird.print_age();
     println!("Can Fly: {}, is Animal : {} ", bird.can_fly(), bird.is_animal());
+
+    let a : MyEnum = MyEnum::A;
+    let b : MyEnum = MyEnum::B(5);
+    let c : MyEnum = MyEnum::C { x: 10, y: 20 };
+    println!("A: {:?}", a);
+    println!("B: {:?}", b);
+    println!("C: {:?}", c);
+
+    if let MyEnum::B(val) = b{
+        println!("Value for B : {}", val);
+    }
+
+    if let MyEnum::C{x,y} = c {
+        println!(" C(X) : {} C(Y) : {}", x, y);
+    } 
+
+    vectors();
+
 }
