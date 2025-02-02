@@ -67,6 +67,49 @@ pub fn is_even(num:u8) -> bool{
     return remainder == 0;
 }
 
+fn mutability(){
+    let num = 5;
+    // num = 32; -> will return error
+    // to change it 
+    // declare with mut
+    println!("Num : {}", num);
+    let mut num1 = 5;
+    println!("Before changing:  {} ", num1);
+    num1 = 20;
+    println!("After changing: {}", num1);
+}
+
+fn arr_slice_ops(arr: [u8; 6], slice: &[u8]){
+    println!("Arr : {:?}", arr);
+    println!("Slice: {:?}", slice);
+    println!("Slice length: {:?}", slice.len());
+    println!("Index 0: {}, Index 1 : {}", slice[0], slice[1]);
+}
+
+// Arrays and slices
+fn fn1(){
+    let arr = [0,1,2,3,4,5];
+    // 1st val is inclusive and last is exclusive 
+    let slice = &arr[1 .. 5]; //1,2,3,4; we don't know length hence using & to reference it
+
+    arr_slice_ops(arr, slice);
+}
+
+fn string(){
+    // let str: &str = "Hello world";
+    let mut string: String = String::from("Hello world"); //string object: It's like a vector; size can increase
+
+    // get everything from 0 to index 6; index 6 excluded
+    let slice = &string[.. 6];
+    println!("Slice length : {} , Slice : {:?}", slice.len(), slice);
+
+    string.push('A');
+    string.push_str("Yash");
+
+    string = string.replace("Hello", "Bye");
+
+    println!("{}", string);
+}
 
 fn main() {
     println!("Hello, world!");
@@ -81,4 +124,8 @@ fn main() {
 
     // return
     println!(" Is Even : {}", is_even(12));
+
+    mutability();
+    fn1();
+    string();
 }
