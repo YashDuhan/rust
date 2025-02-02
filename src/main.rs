@@ -111,6 +111,41 @@ fn string(){
     println!("{}", string);
 }
 
+fn if_else(){
+    let n = 3;
+    if n > 0{
+        println!(" Greater than 0");
+    }else if n < 0 {
+        println!(" Less than 0");
+    }else {
+        println!(" Is 0");
+    }
+}
+
+fn for_loop(){
+    for i in 0..6{
+        println!("{}",i);
+    }
+}
+
+fn while_loop(){
+    let mut i = 0;
+    while i < 5 {
+        println!("{}", i);
+        i+=1;
+    }
+}
+
+fn swtich_statement(){
+    let i = 4;
+    match i {
+        0 => println!("0"),
+        1 | 2 => println!("Either 1 or 2"),
+        3..=4 => println!("Value between 3 and 4; 4 is included"),
+        _ => println!("Default")
+    }
+}
+
 fn main() {
     println!("Hello, world!");
     let a = 10; 
@@ -128,4 +163,8 @@ fn main() {
     mutability();
     fn1();
     string();
+    if_else();
+    for_loop();
+    while_loop();
+    swtich_statement();
 }
