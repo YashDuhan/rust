@@ -146,6 +146,35 @@ fn swtich_statement(){
     }
 }
 
+// Structs
+struct Bird{
+    name: String,
+    age : u128
+}
+// implement methods in struct
+impl Bird {
+    fn print_name(&self){
+        println!("Name : {}", self.name);
+    }
+    fn print_age(&self){
+        println!("Age: {}", self.age)
+    }
+}
+
+// Interfaces in Rust (Traits)
+trait Animal{
+    fn can_fly(&self) -> bool;
+    fn is_animal(&self) -> bool{
+        return true;
+    }
+}
+
+impl Animal for Bird{
+    fn can_fly(&self)-> bool{
+        return true;
+    }
+}
+
 fn main() {
     println!("Hello, world!");
     let a = 10; 
@@ -167,4 +196,11 @@ fn main() {
     for_loop();
     while_loop();
     swtich_statement();
+
+    // using a struct
+    let name_bird = String::from("Yash Bird");
+    let bird = Bird{name: name_bird, age: 20};
+    bird.print_name();
+    bird.print_age();
+    println!("Can Fly: {}, is Animal : {} ", bird.can_fly(), bird.is_animal());
 }
