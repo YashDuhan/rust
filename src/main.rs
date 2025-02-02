@@ -1,3 +1,6 @@
+// call the library for the maps
+use std::collections::HashMap;
+
 fn types(){
     // integers
     // unsigned integers 
@@ -194,6 +197,27 @@ fn vectors(){
 
 }
 
+fn hash_maps(){
+    let mut map = HashMap::new();
+
+    map.insert(0, "Hi");
+    map.insert(1, "Hi2");
+    println!("{:?}", map);
+
+    match map.get(&0){
+        Some(str) => println!("{}", str),
+        None => println!("Doesn't Exist in map"),
+    }
+
+    match map.get(&2){
+        Some(str) => println!("{}", str),
+        _ => println!("Doesn't Exist in map"), // _ is used foe default will work like None
+    }
+
+    map.remove(&0);
+    println!("{:?}", map);
+}
+
 fn main() {
     println!("Hello, world!");
     let a = 10; 
@@ -239,5 +263,6 @@ fn main() {
     } 
 
     vectors();
+    hash_maps();
 
 }
